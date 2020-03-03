@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "msg.h"    /* For the message struct */
+#include <fstream>
+
 using namespace std;
 /* The size of the shared memory chunk */
 #define SHARED_MEMORY_CHUNK_SIZE 1000
@@ -34,6 +36,10 @@ void init(int& shmid, int& msqid, void*& sharedMemPtr)
 		    is unique system-wide among all SYstem V objects. Two objects, on the other hand,
 		    may have the same key.
 	 */
+
+	 ofstream outFile("keyfile.txt");
+	 outFile << "Hello world";
+	 outFile.close();
 
 /*
 	 	 The ftok() function shall return a key based on path and id that is
