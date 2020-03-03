@@ -190,8 +190,8 @@ void mainLoop()
     with the message queue identifier specified by msqid and place it in
     the user-defined buffer pointed to by msgp.
 
-		The argument msgp points to a user- defined buffer that contains first a field of
-		type long specifying  the type of the message, and then a data portion that holds the data
+    The argument msgp points to a user- defined buffer that contains first a field of
+    type long specifying  the type of the message, and then a data portion that holds the data
     bytes of the message.
 
 		Syntax: msgrcv (int msqid, void *msgp, size_t msgsz, long msgtyp, int msgflg)
@@ -235,7 +235,7 @@ void mainLoop()
 	The msgsz argument contains the size of the message in bytes, excluding the length of the message type (4 byte long).
 	The msgflg argument can be set to 0 (ignored)
 
-Syntax: msgsnd(int msqid, const void *msgp, size_t msgsz, int msgflg);
+	Syntax: msgsnd(int msqid, const void *msgp, size_t msgsz, int msgflg);
 */
 			int msgSend = 0;
 			msgSend =  msgsnd(msqid, &msgSender, 0, 0);
