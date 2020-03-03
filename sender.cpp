@@ -180,12 +180,33 @@ void send(const char* fileName)
  		 * (message of type SENDER_DATA_TYPE)
  		 */
 
+		 /*
+		 	The first argument to msgsnd is our queue identifier, returned by a previous call to msgget.
+		 	The second argument, msgp, is a pointer to our redeclared and loaded message buffer.
+		 	The msgsz argument contains the size of the message in bytes, excluding the length of the message type (4 byte long).
+		 	The msgflg argument can be set to 0 (ignored)
+
+		 Syntax: msgsnd(int msqid, const void *msgp, size_t msgsz, int msgflg);
+		 */
+
 		msgSender.mtype = SENDER_DATA_TYPE;
 		msgsnd(msqid, &msgSender, sizeof(msgSender), 0);
 
 		/* TODO: Wait until the receiver sends us a message of type RECV_DONE_TYPE telling us
  		 * that he finished saving the memory chunk.
  		 */
+
+		 /*
+		 		The msgrcv() function shall read a message from the queue associated
+		     with the message queue identifier specified by msqid and place it in
+		     the user-defined buffer pointed to by msgp.
+
+		 		The argument msgp points to a user- defined buffer that contains first a field of
+		 		type long specifying  the type of the message, and then a data portion that holds the data
+		     bytes of the message.
+
+		 		Syntax: msgrcv (int msqid, void *msgp, size_t msgsz, long msgtyp, int msgflg)
+		 */
 
 		msgrcv(msqid, &msgReceiver, 0, RECV_DONE_TYPE, 0);
 
