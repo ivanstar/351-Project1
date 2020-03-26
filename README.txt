@@ -1,4 +1,4 @@
-Ivan Tu         -                                Section 02
+Ivan Tu         ivanstar@csu.fullerton.edu       Section 02
 Bradley Keizer  brad14@csu.fullerton.edu         Section 02
 Alec Battisti   alec.battisti@csu.fullerton.edu  Section 02
 
